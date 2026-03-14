@@ -37,9 +37,11 @@
 
 ## Shell
 <div>
+  <img src=https://overthewire.org/img/favicon.ico height=30px width=30px> 
   <img src=https://underthewire.tech/assets/wire-bg.png height=30px width=30px> 
 </div>
 
+- [OverTheWire - Bandit](https://github.com/Calana2/Writeups/tree/main/OverTheWire-Wargames/Bandit)
 - [UnderTheWire](https://github.com/Calana2/Writeups/tree/main/UnderTheWire-Wargames)
 
 ## VMs: Boot2Root
