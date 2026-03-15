@@ -16,16 +16,20 @@
 
 ## Ingeniería Inversa
 <div>
+ <img src=https://overthewire.org/img/favicon.ico height=30px width=30px>
 <img src=https://crackmes.one/static/favicons/crackmes-logo.png height=30px width=30px> 
 </div>
 
+- [OverTheWire - Leviathan](https://github.com/Calana2/Writeups/tree/main/OverTheWire-Wargames/Leviathan)
 - [crackmes.one](https://github.com/Calana2/Writeups/tree/main/crackmes.one)
   
 ## Criptografía
 <div>
+   <img src=https://overthewire.org/img/favicon.ico height=30px width=30px>
   <img width="40" height="40" src="https://github.com/user-attachments/assets/a89b5cb3-c8b0-433c-9ccd-4aa43c4e19fb" />
 </div>
 
+- [OverTheWire - Krypton](https://github.com/Calana2/Writeups/tree/main/OverTheWire-Wargames/Krypton)
 - [The Cryptopals Crypto Challenges](https://github.com/Calana2/Writeups/tree/main/The_Cryptopals_Crypto_Challenges)
 
 ## Explotación Web
