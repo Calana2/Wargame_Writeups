@@ -6,13 +6,14 @@
 <img src=https://pwnable.tw/static/icon/favicon-16x16.png height=30px width=30px> 
 <img width="30" height="30" src="https://github.com/user-attachments/assets/9ae45dc1-0340-407d-b446-f1d41d38c08f" />
 <img width="30" height="30" alt="2026-03-08-114234_168x159_scrot" src="https://github.com/user-attachments/assets/83b11c64-435c-4640-9055-16ef55d3448f" />
-
+<img src=https://overthewire.org/img/favicon.ico height=30px width=30px>
 </div>
 
 - [pwnable.kr](https://github.com/Calana2/Writeups/tree/main/pwnable.kr)
 - [pwnable.tw](https://github.com/Calana2/Writeups/tree/main/pwnable.tw)
 - [ROP emporium](https://github.com/Calana2/Writeups/tree/main/ROP_Emporium)
 - [HeapLAB](https://github.com/Calana2/Writeups/tree/main/HeapLab-Udemy)
+- [OverTheWire - Narnia](https://github.com/Calana2/Writeups/tree/main/OverTheWire-Wargames/Narnia)
 
 ## Ingeniería Inversa
 <div>
