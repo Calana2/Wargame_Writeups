@@ -8,7 +8,7 @@ ROP Emporium es una serie de laboratorios para aprender Programacion Orientada a
 
 ### Retos
 
-| x86   | x86_64  | ARM   | MIPS |challenge_name |
+| x86   | x86_64  | ARMv5   | MIPS |challenge_name |
 | --- | --- | --- | --- | -------------- |
 | [X] | [X] | [X] | [X] |ret2win        |
 | [X] | [X] | [ ] | [ ] | split          |
