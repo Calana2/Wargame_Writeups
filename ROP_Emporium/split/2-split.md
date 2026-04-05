@@ -5,7 +5,7 @@
 ## Indice
 - [x86](x86)
 - [x86-64](#x86_64)
-- [Notas](#Notas)
+- [MIPS](#MIPS)
 
 # x86
 
