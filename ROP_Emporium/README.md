@@ -13,7 +13,7 @@ ROP Emporium es una serie de laboratorios para aprender Programacion Orientada a
 | [X] | [X] | [X] | [X] |ret2win        |
 | [X] | [X] | [ ] | [X] | split          |
 | [X] | [X] | [ ] | [X] |callme         |
-| [X] | [X] | [ ] | [ ] |write4         |
+| [X] | [X] | [ ] | [X] |write4         |
 | [X] | [X] | [ ] | [ ] |badchars       |
 | [X] | [X] | [ ] | [ ] |fluff          |
 | [X] | [X] | [ ] | [ ] |pivot          |
@@ -26,3 +26,7 @@ ROP Emporium es una serie de laboratorios para aprender Programacion Orientada a
 [CTF-101](https://ctf101.org/binary-exploitation/overview/)
 
 [Pwntools](https://docs.pwntools.com/en/dev/intro.html)
+
+[ARM](https://azeria-labs.com/writing-arm-assembly-part-1/)
+
+[MIPS](https://bh-cookbook.github.io/)
