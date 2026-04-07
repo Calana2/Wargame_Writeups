@@ -1,1 +1,1 @@
-No hay writeups, solo gists privados.
+Por ahora guardo las soluciones en gists privados, subo aquí imágenes de los que he solucionado.
