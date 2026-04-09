@@ -14,9 +14,9 @@ ROP Emporium es una serie de laboratorios para aprender Programacion Orientada a
 | [X] | [X] | [ ] | [X] | split          |
 | [X] | [X] | [ ] | [X] |callme         |
 | [X] | [X] | [ ] | [X] |write4         |
-| [X] | [X] | [ ] | [ ] |badchars       |
+| [X] | [X] | [ ] | [X] |badchars       |
 | [X] | [X] | [ ] | [ ] |fluff          |
-| [X] | [X] | [ ] | [ ] |pivot          |
+| [X] | [X] | [ ] | [X] |pivot          |
 | [X] | [X] | [ ] | [ ] |ret2csu        |
 
 ### Recursos recomendados
