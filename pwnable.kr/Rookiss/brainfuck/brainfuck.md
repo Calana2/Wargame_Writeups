@@ -208,7 +208,4 @@ io.sendlineafter(b"]\n",b"/bin/sh")
 io.interactive()
 ```
 
-
-
-
-
+`bR41n_F4ck_Is_FuN_LanguaG3`
