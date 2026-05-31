@@ -1,6 +1,6 @@
 # asm2
 
-![img](https://raw.githubusercontent.com/Calana2/Wargame_Writeups/refs/heads/main/pwnable.kr/Grotesque/asm2.png)
+![img](https://raw.githubusercontent.com/Calana2/Wargame_Writeups/refs/heads/main/pwnable.kr/Hackers_Secret/asm2.png)
 
 ```C
   read(0,code_ptr + stub_len,27);
