@@ -72,11 +72,9 @@
   * [x] asm2
 
 ## 5. Legacy Challenges / Old Challenges
-* [ ] flag
-* [ ] passcode
+* [x] flag
 * [x] shellshock
-* [ ] cmd1
-* [ ] codemap
+* [x] codemap
 * [ ] blukat
 * [ ] fsb
 * [ ] fix
@@ -85,9 +83,9 @@
 * [ ] proxy server
 * [ ] sudoku
 * [ ] lokihardt
+* [ ] tiny
 * [ ] unexploitable
 * [ ] xml
 * [ ] exploitable
 * [ ] combabo calculator
 * [ ] crcgen
-* [ ] tiny

@@ -1,6 +1,6 @@
 # flag
 
-![img](https://github.com/Calana2/Wargame_Writeups/blob/main/pwnable.kr/Legacy_Challenges/flag/flag.jpg)
+![img](https://github.com/Calana2/Wargame_Writeups/blob/main/pwnable.kr/Legacy_Challenges/flag/flag.jpeg)
 
 ```
 $ ./flag
