@@ -1,6 +1,6 @@
 # shellshock
 
-IMAGEN
+![img](https://github.com/Calana2/Wargame_Writeups/blob/main/pwnable.kr/Legacy_Challenges/shellshock/shellshock.jpeg)
 
 ```
 shellshock@ubuntu:~$ ls -l
