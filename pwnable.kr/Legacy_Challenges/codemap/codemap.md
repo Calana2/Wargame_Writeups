@@ -1,6 +1,7 @@
+
 # codemap
 
-![img](https://github.com/Calana2/Wargame_Writeups/blob/main/pwnable.kr/Legacy_Challenges/flag/codemap.png)
+![img](https://github.com/Calana2/Wargame_Writeups/blob/main/pwnable.kr/Legacy_Challenges/codemap/codemap.png)
 
 ```C
 void main(void)
@@ -109,9 +110,9 @@ El programa es un ejecutable de Windows que crea 1000 chunks en el heap con tama
 
 Aunque supuestamente el reto fue nombrado como una extensión para IDA que desarrolló el creador, yo usé x32dbg en windows para rastrear las llamadas y almacenar las direcciones y tamaños en un log. 
 
-IMAGEN1
+<img width="1361" height="721" alt="codemap1" src="https://github.com/user-attachments/assets/d9758367-55e7-46bf-a7ec-243f2a09f12c" />
 
-IMAGEN2
+<img width="1365" height="718" alt="codemap12" src="https://github.com/user-attachments/assets/5c102a66-c677-43ad-a8d7-df3937c9fb6f" />
 
 Posteriormente usé un script de Python para obtener los valores correctos
 ```py
@@ -137,9 +138,8 @@ Third biggest chunk: 0x1854e
 
 Agregué breakpoints condicionales y en el debugger leí el contenido:
 
-IMAGEN3
+<img width="1360" height="722" alt="codemap123" src="https://github.com/user-attachments/assets/fe86d2ed-218e-44b0-96a4-419089c98193" />
 
 Las cadenas que contienen los tres chunks más grandes en orden de mayor a menor son `X12nM7yCJcu0x5u`, `roKBkoIZGMUKrMb` y `2ckbnDUabcsMA2s`.
 
 `select_eax_from_trace_order_by_eax_desc_limit_20`
-
