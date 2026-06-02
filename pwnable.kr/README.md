@@ -75,9 +75,9 @@
 * [x] flag
 * [x] shellshock
 * [x] codemap
-* [ ] blukat
+* [x] blukat
 * [ ] fsb
-* [ ] fix
+* [x] fix
 * [ ] echo1
 * [ ] alloca
 * [ ] proxy server
