@@ -78,8 +78,8 @@
 * [x] blukat
 * [ ] fsb
 * [x] fix
-* [ ] echo1
-* [ ] alloca
+* [x] echo1
+* [x] alloca
 * [ ] proxy server
 * [ ] sudoku
 * [ ] lokihardt
