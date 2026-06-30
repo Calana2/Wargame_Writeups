@@ -52,7 +52,7 @@
   * [x] starcraft
   * [x] cmd3
   * [x] elf
-  * [ ] lfh
+  * [x] lfh
   * [x] asg
   * [ ] hunter
   * [x] mipstake
