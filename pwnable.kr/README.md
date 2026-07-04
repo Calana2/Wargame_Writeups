@@ -76,16 +76,16 @@
 * [x] shellshock
 * [x] codemap
 * [x] blukat
-* [ ] fsb
+* [x] fsb
 * [x] fix
 * [x] echo1
 * [x] alloca
+* [x] exploitable
+* [x] sudoku
+* [x] tiny
 * [ ] proxy server
-* [ ] sudoku
 * [ ] lokihardt
-* [ ] tiny
 * [ ] unexploitable
 * [ ] xml
-* [ ] exploitable
 * [ ] combabo calculator
 * [ ] crcgen
