@@ -90,6 +90,6 @@ void get_input(char *param_1,int param_2)
 }
 ```
 
-Hay un buffer overflow clásico aquí. El programa no es PIE y el stack es ejecutable. No entiendo por que writeups antiguos afirmaban que redirigir la ejecución a `id`, que se encuentra en una región de memoria rw- funciona. Tal vez es porque el hardware viejo o en Linux antiguos si el programa no usaba NX entonces no lo forzaba en el resto del programa que no fuese el stack. Por otra parte se puede hacer un ret2libc. Es clave usar `id` como dirección para el comando ejecutado por `system` porque podemos controlar `edi`, no `rdi`.
+Hay un buffer overflow clásico aquí. El programa no es PIE y el stack es ejecutable. No entiendo por qué writeups antiguos afirmaban que redirigir la ejecución a `id`, que se encuentra en una región de memoria rw- funciona. Tal vez es porque el hardware viejo o en Linux antiguos si el programa no usaba NX entonces no lo forzaba en el resto del programa que no fuese el stack. Por otra parte se puede hacer un ret2libc. Es clave usar `id` como dirección para el comando ejecutado por `system` porque podemos controlar `edi`, no `rdi`.
 
 `H4d_som3_fun_w1th_ech0_ov3rfl0w`
