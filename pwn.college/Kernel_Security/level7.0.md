@@ -36,7 +36,7 @@ long device_ioctl(file *file,uint cmd,ulong arg)
 }
 ```
 
-Nos permiten ingresar shellcode y redirigir la ejecución del kernel a la dirección ue querramos. No podemos usar shellcode en userspace porque hay SMEP:
+Nos permiten ingresar shellcode y redirigir la ejecución del kernel a la dirección que querramos. No podemos usar shellcode en userspace porque hay SMEP:
 ```
 cat /proc/cpuinfo|grep -o smep
 smep
