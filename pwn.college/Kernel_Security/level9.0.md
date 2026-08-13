@@ -51,7 +51,7 @@ struct logger {
 Los bytes 0x101-0x108 almacenan la dirección de la función de registro (en este caso apunta a `printk`). Si sobreescribimos esto con una dirección maliciosa podemos invocar dicha función con los primeros 0x100 bytes como argumento.
 
 El kernel cuenta con la función [`run_cmd`](https://elixir.bootlin.com/linux/v5.4/source/kernel/reboot.c#L422) para ejecutar programas en el espacio de usuario de ser necesario:
-```
+```C
 static int run_cmd(const char *cmd)
 {
 	char **argv;
