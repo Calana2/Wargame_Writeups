@@ -29,8 +29,11 @@ Retomando el proyecto anterior de leer toda la memoria física por medio del map
 ffff888000000000 | -119.5  TB | ffffc87fffffffff |   64 TB | direct mapping of all physical memory (page_offset_base)
 ```
 
-El shellcode que intenté usar en el nivel anterior fallaba por una cosa: estaba usando `CALL rel32` en lugar de `CALL r/m64` a `printk` lo que provocaba un error. 
-INSERTAR IMG
+El shellcode que intenté usar en el nivel anterior fallaba por una cosa: estaba usando `CALL rel32` en lugar de `CALL r/m64` a `printk`, lo que provocaba un error.
+
+<img width="230" height="300" alt="bocchi-the-rock-bocchi" src="https://github.com/user-attachments/assets/d3715577-311d-4a1a-a491-b12cb635e142" />
+
+---
 
 En fin, la solución al reto es leer toda la memoria física del sistema buscando el patrón de la flag:
 ```
