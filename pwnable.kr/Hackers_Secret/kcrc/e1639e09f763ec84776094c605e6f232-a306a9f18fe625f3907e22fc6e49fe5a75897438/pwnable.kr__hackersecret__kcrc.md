@@ -22,11 +22,11 @@ Acerca de las funciones del módulo:
 - `kwrite` lee de un buffer que debe ser de exactamente 12 bytes. Los primeros 4 bytes o doble-palabra representan un código de operación o `op`; existen dos códigos de operación válidos: 0xadd y 0xde1. El primero permite rellenar `kcrc` usando un puntero a bytes y un número de rondas dadas por el usuario. La segunda cambia el valor del byte apuntado por `idx` a 0 y decrementa el índice.
 - `kread` devuelve el contenido de `kcrc`.
 
-Vulnerabilidad:
+Vulnerabilidades:
 - Condición de carrera en `kwrite` que permite sobreescribir al propio `idx`. (OOB write)
 - Lectura arbitraria con `kwrite` y `kread`. Se puede crear un crc usando de buffer la dirección objetivo y luego hacer fuerza bruta para obtener los bytes originales. (OOB read)
 
-No podemos sobreescribir el puntero `procfile`, que se encuentra a continuación de `kcrc` por la condición en `kwrite. Pero sí podemos leerlo para obtener la dirección de la estructura `proc_dir_entry` de este módulo. Hecho esto ajustamos `idx=(0xc880f180 - &procfile + 0x34) / 4` (offset 0x34 sacado por medio del análisis estático del módulo) para sobreescribir `proc_dir_entry->read_proc` o `proc_dir_entry->write_proc` con la dirección de una función maliciosa en userland para escalar privilegios. Luego llamamos a `kread` para desencadenar el paso final.
+No podemos sobreescribir el puntero `procfile`, que se encuentra a continuación de `kcrc` por la condición en `kwrite`. Pero sí podemos leerlo para obtener la dirección de la estructura `proc_dir_entry` de este módulo. Hecho esto ajustamos `idx=(0xc880f180 - &procfile + 0x34) / 4` (offset 0x34 sacado por medio del análisis estático del módulo) para sobreescribir `proc_dir_entry->read_proc` o `proc_dir_entry->write_proc` con la dirección de una función maliciosa en userland para escalar privilegios. Luego llamamos a `kread` para desencadenar el paso final.
 ```C
 struct proc_dir_entry {
 	unsigned int low_ino;
