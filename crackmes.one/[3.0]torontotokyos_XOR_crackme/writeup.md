@@ -6,11 +6,11 @@ Por lo menos alcancé a vislumbrar la comparacion de la entrada de usuario con l
 
 <img width="1366" height="251" alt="2025-09-13-130557_1366x251_scrot" src="https://github.com/user-attachments/assets/64538ef1-b55d-4ef8-9fb3-a97c7de0f468" />
 
-Use x64dbg para depurar y agrege breakpoints en `cmp rbx,rcx` y `test al,al`.
+Usé x64dbg para depurar y agregué breakpoints en `cmp rbx,rcx` y `test al,al`.
 
 Para ser honesto encontré la contraseña correcta a los veinte minutos mirando el estado de la pila en el breakpoint de `test al,al`, es `##8/7-1,9895@<-6e&g$t|`.
 
-Sin embargo queria llegar a la logica verdadera y visualizando linea por linea la ejecucion me encontre con esto:
+Sin embargo quería llegar a entender la lógica verdadera y visualizando linea por linea la ejecucion me encontré con esto:
 ```
 .text base address: 00000000004A1000
 
