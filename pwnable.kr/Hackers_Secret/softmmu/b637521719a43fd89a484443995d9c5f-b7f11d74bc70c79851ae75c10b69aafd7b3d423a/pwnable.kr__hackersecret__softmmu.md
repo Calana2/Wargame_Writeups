@@ -140,7 +140,7 @@ current_task (puntero a struct task_struct)
 *(int*)(*(int*)(*(int*)(current_task) + 0x1d4) + 0x24) = mm->pgd (puntero a array de pgd_t)
 ```
 
-Como no tenía ni idea de como funcionaba la paginación y las traducciones de direcciones virtuales a físicas m/as allá de un mapeo lineal leí estos recursos:
+Como no tenía ni idea de como funcionaba la paginación y las traducciones de direcciones virtuales a físicas más allá de un mapeo lineal leí estos recursos:
 - https://pages.cs.wisc.edu/~remzi/OSTEP/vm-paging.pdf
 - https://pages.cs.wisc.edu/~remzi/OSTEP/vm-tlbs.pdf
 - https://pages.cs.wisc.edu/~remzi/OSTEP/vm-smalltables.pdf
