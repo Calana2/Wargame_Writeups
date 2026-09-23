@@ -430,7 +430,7 @@ Esto lo podemos hacer varias veces porque si el Bucket de ese tamaño esta lleno
 
 Hay que tener en cuenta que al usar `is_unicode` en realidad se reservan dos "Books" por lo que antes de insertar el malicioso necesitamos dos espacios adicionales en lugar de 1.
 
-La cadena de llamadas consiste en usar `printf` con una cadena de formato para escribir parcialmente la dirección de `system` en la enrada de la GOT de `realpath`. Esta última se invoca teniendo como argumento el nombre del archivo:
+La cadena de llamadas consiste en usar `printf` con una cadena de formato para escribir parcialmente la dirección de `system` en la entrada de la GOT de `realpath`. Esta última se invoca teniendo como argumento el nombre del archivo:
 ```C
  printf("%d books in %s file were successfully parsed\n", books->n_total, realpath(argv[1], 0));
 ```
