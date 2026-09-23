@@ -304,7 +304,7 @@ total 0
 
 ## core_pattern
 
-Al igual que `modprobe_path`, `core_pattern` es otra variable que podemos sobreescribir para obtener control. Normalmente contiene una cadena de formato que especifica la ruta y nombre de los coredumps generados pero el símbolo '|' al inicio de la cadenale dice al kernel que, en lugar de escribir un archivo, debe ejecutar un programa de espacio de usuario y enviarle los datos del volcado de memoria por la entrada estándar. Esto es genial y funciona en `busybox`!
+Al igual que `modprobe_path`, `core_pattern` es otra variable que podemos sobreescribir para obtener control. Normalmente contiene una cadena de formato que especifica la ruta y nombre de los coredumps generados pero el símbolo '|' al inicio de la cadena le dice al kernel que, en lugar de escribir un archivo, debe ejecutar un programa de espacio de usuario y enviarle los datos del volcado de memoria por la entrada estándar. Esto es genial y funciona en `busybox`!
 
 Para compilar el programa usé musl-gcc, lo comprimí y luego lo copié en trozos en base64, rearmándolo en el emulador.
 
