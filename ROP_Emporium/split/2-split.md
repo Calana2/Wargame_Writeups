@@ -189,7 +189,7 @@ Necesitamos almacenar la dirección de "/bin/cat flag.txt" en `a0` e invocar sys
 0x00400a18: nop; nop; lw $a0, 8($sp); lw $t9, 4($sp); jalr $t9; nop;
 ```
 
-Aquí el gadget en 0x00400a1c nos es útil porque nos permite hacer ambas cosas con offst relativos al stack, este es bueno.
+Aquí el gadget en 0x00400a1c nos es útil porque nos permite hacer ambas cosas con offsets relativos al stack, este es bueno.
 ```py
 from pwn import *
 io = process("qemu-mipsel -L /usr/mipsel-linux-gnu split_mipsel",shell=True)
