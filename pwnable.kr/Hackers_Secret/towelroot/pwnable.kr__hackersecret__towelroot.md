@@ -2,7 +2,7 @@
 
 ![img](https://raw.githubusercontent.com/Calana2/Wargame_Writeups/refs/heads/main/pwnable.kr/Hackers_Secret/towelroot.png)
 
-### PoC
+## PoC
 Este reto debe ser explotado usando CVE-2014-3153, AKA Towelroot. 
 
 Lancé un PoC creado a partir de [este genial artículo](https://elongl.github.io/exploitation/2021/01/08/cve-2014-3153.html) que cubre el tema.
@@ -127,7 +127,7 @@ Fixing recursive fault but reboot is needed!
 
 El resultado fue el esperado, el sistema sufrió un error irrecuperable.
 
-#### Análisis de las protecciones
+## Análisis de las protecciones
 
 Si inspeccionamos `helper.c` vemos que no hay protecciones de escritura en la tabla de syscalls:
 
@@ -182,7 +182,7 @@ module_exit( exitmodule );
 MODULE_LICENSE("GPL");
 ```
 
-#### Explotación
+## Explotación
 
 Usé [el repositorio del artículo que mencioné](https://github.com/elongl/CVE-2014-3153/blob/master/) como exploit base.
 
@@ -270,7 +270,7 @@ static inline void __list_add(struct list_head *new,
 }
 ```
 
-IMAGENES
+<img width="1659" height="947" alt="Drawing 2026-11-09 08 45 38 excalidraw" src="https://github.com/user-attachments/assets/353941f5-cce4-48a3-8000-364add953adc" />
 
 Posteriormente hay que corregir la estructura `thread_info` que cambia para builds de ARM:
 
