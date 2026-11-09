@@ -78,7 +78,7 @@ Solo podemos controlar el contenido de los primeros 116 bytes, es decir, podemos
 
 No conocemos el valor del canario, sin embargo, dado que sobreescribimos la mismísima variable de conteo, podemos hacer i=119(0x77) (1 menos porque el contador lo aumenta en 1 justo despues) y así sobreescribir RIP sin tocar el canario.
 
-Controlar `rip` es posible, porque hay un comportamiento peculiar en esta version que provoca que la entrada de `fgets` quede duplicada y se almacene no solo en el campo `data` del chunk de destion sino tambien en el campo `data` del top chunk:
+Controlar `rip` es posible, porque hay un comportamiento peculiar en esta version que provoca que la entrada de `fgets` quede duplicada y se almacene no solo en el campo `data` del chunk de destino sino tambien en el campo `data` del top chunk:
 ```
 ───────────────────────────────────────────────[ STACK ]───────────────────────────────────────────────
 00:0000│ rsp 0x7fffffffdbd8 —▸ 0x400dc3 (main+366) ◂— jmp main+414

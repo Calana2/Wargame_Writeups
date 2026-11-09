@@ -1,5 +1,7 @@
 # exynos
 
+## CVE-2012-6422
+
 ![img](https://raw.githubusercontent.com/Calana2/Wargame_Writeups/refs/heads/main/pwnable.kr/Hackers_Secret/exynos.png)
 
 El nombre que recibe es debido a [una vulnerabilidad en los chips Exynos de Samsung](https://xdaforums.com/t/root-security-root-exploit-on-exynos.2048511/#post-35469999) que daba acceso RW a un dispositivo de caracteres llamado `/dev/exynos-mem` que supuestamente era accedido para manejo de gráficos y acabó permitiendo manipular memoria del mismísimo kernel.

@@ -262,8 +262,6 @@ pwndbg>
 
 Se sobreescribe el campo `prev_size` del chunk con los últimos bytes. Y por los punteros a `main_arena` que se pueden observar, sabemos que esta en una lista doblemente enlazada, como la *unsorted bin*.
 
-IMAGEN
-
 Posteriormente también me di cuenta que podemos sobreescribir el campo `size` con hasta 4 bytes.
 
 ## Explotación
