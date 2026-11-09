@@ -4,6 +4,8 @@
 
 'pwnable.kr' es otro sitio de "wargames" que ofrece varios desafíos de pwn relacionados con la explotacion de sistemas.
 
+**Actualización**: Por fin terminé todos los retos actuales de la plataforma. El primer wargame que completo al 100%.
+
 ## 1. Toddler's Bottle
   * [x] fd
   * [x] collision
@@ -38,7 +40,7 @@
   * [x] unlink
   * [x] loveletter
   * [x] chatbot
-  * [ ] crashgen
+  * [x] crashgen
   * [x] leakme
 
 ## 3. Grotesque
@@ -54,7 +56,7 @@
   * [x] elf
   * [x] lfh
   * [x] asg
-  * [ ] hunter
+  * [x] hunter
   * [x] mipstake
   * [x] asm3
   * [x] sizcaller
@@ -62,11 +64,11 @@
 ## 4. Hacker's Secret
   * [x] softmmu
   * [x] dos4fun
-  * [ ] towelroot
+  * [x] towelroot
   * [x] nuclear
   * [x] malware
   * [x] tiny_hard
-  * [ ] kcrc
+  * [x] kcrc
   * [x] exynos
   * [x] pwnsandbox
   * [x] asm2
