@@ -29,7 +29,7 @@
 
 - [OverTheWire - Leviathan](https://github.com/Calana2/Writeups/tree/main/OverTheWire-Wargames/Leviathan)
 - [crackmes.one](https://github.com/Calana2/Writeups/tree/main/crackmes.one)
-- [Microcorruption](https://microcorruption.com/)
+- [Microcorruption](https://github.com/Calana2/Wargame_Writeups/tree/main/Microcorruption/)
   
 ## Criptografía
 <div>
